@@ -1,5 +1,6 @@
 RabbitMQ JMS Topic Exchange Plugin
 ==================================
+(1.0.1-PATCH-2013-06-13)
 
 Overview
 --------
