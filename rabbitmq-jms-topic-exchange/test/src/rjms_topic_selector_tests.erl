@@ -65,13 +65,13 @@ test_messages_selected_by_exchange() ->
     %% Bind the queue to the exchange
     Binding = #'queue.bind'{ queue       = Q
                            , exchange    = Exchange
-                           , routing_key = Q
+                           , routing_key = <<"select-key">>
                            , arguments   = sqlArgs()
                            },
     #'queue.bind_ok'{} = amqp_channel:call(Channel, Binding),
 
     %% Publish a message
-    publish_two_messages(Channel, Exchange, Q),
+    publish_two_messages(Channel, Exchange),
 
     %% Get a message back from the queue
     Get = #'basic.get'{queue = Q},
@@ -79,7 +79,7 @@ test_messages_selected_by_exchange() ->
       = amqp_channel:call(Channel, Get),
 
     0 = Remaining,  % there should be none remaining
-    <<"true">> = Content,  % the content should be "true"
+    <<"true">> = Content#amqp_msg.payload,  % the content should be "true"
 
     %% Ack the message
     amqp_channel:cast(Channel, #'basic.ack'{delivery_tag = Tag}),
@@ -92,7 +92,7 @@ test_messages_selected_by_exchange() ->
     ok.
 
 publish_two_messages(Chan, Exch, Q) ->
-    Publish = #'basic.publish'{exchange = Exch, routing_key = Q},
+    Publish = #'basic.publish'{exchange = Exch, routing_key = <<"select-key">>},
     amqp_channel:cast(Chan, Publish, createMsg(<<"false">>, [{<<"boolVal">>, 'bool', false}])),
     amqp_channel:cast(Chan, Publish, createMsg(<<"true">>, [{<<"boolVal">>, 'bool', true}])),
     ok.

@@ -31,6 +31,7 @@
         , validate/1
         , create/2
         , delete/3
+        , validate_binding/2
         , add_binding/3
         , remove_bindings/3
         , assert_args_equivalence/2
