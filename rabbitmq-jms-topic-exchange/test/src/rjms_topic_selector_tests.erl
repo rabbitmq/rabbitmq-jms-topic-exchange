@@ -65,13 +65,13 @@ test_messages_selected_by_exchange() ->
     %% Bind the queue to the exchange
     Binding = #'queue.bind'{ queue       = Q
                            , exchange    = Exchange
-                           , routing_key = RoutingKey
-                           , args        = sqlArgs()
+                           , routing_key = Q
+                           , arguments   = sqlArgs()
                            },
-    #'queue.bind_ok'{} = amqp_channel:call(Channel, Binding)
+    #'queue.bind_ok'{} = amqp_channel:call(Channel, Binding),
 
     %% Publish a message
-    publish_two_messages(Channel, Exchange),
+    publish_two_messages(Channel, Exchange, Q),
 
     %% Get a message back from the queue
     Get = #'basic.get'{queue = Q},
