@@ -91,7 +91,7 @@ test_messages_selected_by_exchange() ->
     amqp_connection:close(Connection),
     ok.
 
-publish_two_messages(Chan, Exch, Q) ->
+publish_two_messages(Chan, Exch) ->
     Publish = #'basic.publish'{exchange = Exch, routing_key = <<"select-key">>},
     amqp_channel:cast(Chan, Publish, createMsg(<<"false">>, [{<<"boolVal">>, 'bool', false}])),
     amqp_channel:cast(Chan, Publish, createMsg(<<"true">>, [{<<"boolVal">>, 'bool', true}])),
