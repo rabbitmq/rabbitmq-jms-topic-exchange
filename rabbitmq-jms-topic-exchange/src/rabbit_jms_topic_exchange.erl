@@ -127,6 +127,9 @@ delete(transaction, #exchange{name = XName}, _Bs) ->
 delete(_Tx, _X, _Bs) ->
   ok.
 
+% Before add binding
+validate_binding(_X, _B) -> ok.
+
 % A new binding has ben added or recovered
 add_binding( Tx
            , #exchange{name = XName, arguments = XArgs}
