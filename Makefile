@@ -4,7 +4,7 @@ ARTEFACT:=rabbitmq_jms_topic_exchange
 MAVEN_ARTEFACT:=$(ARTEFACT).ez
 
 # Version of RabbitMQ to build against: must be supplied on commandline
-# RMQ_VERSION=3.1.1
+# RMQ_VERSION=
 
 HG_BASE:=http://hg.rabbitmq.com
 
