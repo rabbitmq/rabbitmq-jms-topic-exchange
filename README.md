@@ -1,5 +1,5 @@
-RabbitMQ JMS Topic Exchange Plugin
-==================================
+RabbitMQ JMS Topic Selector Exchange Plugin
+===========================================
 
 Overview
 --------
