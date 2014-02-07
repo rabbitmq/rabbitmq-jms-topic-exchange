@@ -45,14 +45,15 @@ repository, issue the command:
     mvn clean install
 
 This will get the relevant parts of the `rabbitmq-public-umbrella`
-repositories, at the specified version of RabbitMQ (stored in the Maven
+repositories, set to the specified version of RabbitMQ (stored in the Maven
 `pom`), copy the plugin source subdirectory into the right position in
-the umbrella tree, and issue the standard `make` commands to build a
+the umbrella tree, make some small modifications for versioning the plugin,
+and then issue the standard RabbitMQ `make` commands to build a
 RabbitMQ plugin. After these finish (successfully) the artefact
 generated (`rabbitmq_jms_topic_exchange.ez`) is copied into the outer
-`target/plugins` directory and thence pushed to the Maven repository.
+`target/plugins` directory, renamed, and thence pushed to the Maven repository.
 
-All the other dependencies are pulled in by the RabbitMQ plugin `make`
+All the other work is performed by the standard RabbitMQ plugin `make`
 process.
 
 This rather indirect build procedure is used to tie in with the rest of
