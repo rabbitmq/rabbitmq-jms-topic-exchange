@@ -1,5 +1,10 @@
 # RabbitMQ JMS Topic Exchange Plugin
 
+## This was migrated to https://github.com/rabbitmq/rabbitmq-server
+
+This repository has been moved to the main unified RabbitMQ "monorepo", including all open issues. You can find the source under [/deps/rabbitmq_jms_topic_exchange](https://github.com/rabbitmq/rabbitmq-server/tree/master/deps/rabbitmq_jms_topic_exchange).
+All issues have been transferred.
+
 ## Overview
 
 This plugin adds server-side support for [RabbitMQ JMS client](https://github.com/rabbitmq/rabbitmq-jms-client).
